@@ -69,8 +69,8 @@ sudo apt-get install ros-XXX-cv-bridge ros-XXX-tf ros-XXX-message-filters ros-XX
 ```
 sudo apt-get install ros-kinetic-cv-bridge ros-kinetic-tf ros-kinetic-message-filters ros-kinetic-image-transport*
 ```
-### 3.2. **livox_ros_driver**
-Follow this [livox_ros_driver Installation](https://github.com/Livox-SDK/livox_ros_driver).
+### 3.2. **livox_ros_driver2**
+Follow this [livox_ros_driver2 Installation](https://github.com/Livox-SDK/livox_ros_driver2).
 
 ### 3.3 **CGAL** and **pcl_viewer** (optional)
 ```
@@ -141,7 +141,7 @@ meshlab textured_mesh.ply
 
 ## 6. Sample and run your own data
 ### 6.1  Livox-ros-driver for R2/R3LIVE
-Since the LiDAR data and IMU data published by the official Livox-ros-driver is with the timestamp of LiDAR (started from 0 in each recording), and the timestamp of the image is usually recorded with the timestamp of the operation system. To make them working under the same time-based, we modified the source code of Livox-ros-driver, which is available at [here](https://github.com/ziv-lin/livox_ros_driver_for_R2LIVE). We suggest you replace the official driver with it when sampling your own data for R3LIVE.
+Since the LiDAR data and IMU data published by the official Livox-ros-driver is with the timestamp of LiDAR (started from 0 in each recording), and the timestamp of the image is usually recorded with the timestamp of the operation system. To make them working under the same time-based, we modified the source code of Livox-ros-driver, which is available at [here](https://github.com/ziv-lin/livox_ros_driver2_for_R2LIVE). We suggest you replace the official driver with it when sampling your own data for R3LIVE.
 ### 6.2  Sensor calibration
 In order to launch R3LIVE on your own hardware setup, you need to have a carefully calibration of the extrinsic among LiDAR, Camera and IMU. We recommend you using the following repo to kindly calibrate your sensors:
 

@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <pcl_conversions/pcl_conversions.h>
 #include <sensor_msgs/PointCloud2.h>
-#include <livox_ros_driver/CustomMsg.h>
+#include <livox_ros_driver2/CustomMsg.h>
 #include "../tools/tools_logger.hpp"
 
 using namespace std;
@@ -79,7 +79,7 @@ int    point_filter_num;
 int    g_if_using_raw_point = 1;
 int    g_LiDAR_sampling_point_step = 3;
 void   mid_handler( const sensor_msgs::PointCloud2::ConstPtr &msg );
-void   horizon_handler( const livox_ros_driver::CustomMsg::ConstPtr &msg );
+void   horizon_handler( const livox_ros_driver2::CustomMsg::ConstPtr &msg );
 void   velo16_handler( const sensor_msgs::PointCloud2::ConstPtr &msg );
 void   oust64_handler( const sensor_msgs::PointCloud2::ConstPtr &msg );
 void   give_feature( pcl::PointCloud< PointType > &pl, vector< orgtype > &types, pcl::PointCloud< PointType > &pl_corn,
@@ -191,7 +191,7 @@ void   mid_handler( const sensor_msgs::PointCloud2::ConstPtr &msg )
     pub_func( pl_corn, pub_corn, msg->header.stamp );
 }
 
-void horizon_handler( const livox_ros_driver::CustomMsg::ConstPtr &msg )
+void horizon_handler( const livox_ros_driver2::CustomMsg::ConstPtr &msg )
 {
     double                                 t1 = omp_get_wtime();
     vector< pcl::PointCloud< PointType > > pl_buff( N_SCANS );
@@ -216,7 +216,7 @@ void horizon_handler( const livox_ros_driver::CustomMsg::ConstPtr &msg )
             && ( !IS_VALID( msg->points[ i ].x ) ) 
             && ( !IS_VALID( msg->points[ i ].y ) ) 
             && ( !IS_VALID( msg->points[ i ].z ) )
-            && msg->points[ i ].x > 0.7 )
+            )
         {
             // https://github.com/Livox-SDK/Livox-SDK/wiki/Livox-SDK-Communication-Protocol
             // See [3.4 Tag Information] 

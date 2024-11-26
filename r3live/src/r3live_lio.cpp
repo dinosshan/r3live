@@ -104,8 +104,8 @@ bool R3LIVE::get_pointcloud_data_from_ros_message( sensor_msgs::PointCloud2::Con
     }
     else
     {
-        if ( ( msg->fields.size() == 8 ) && ( msg->fields[ 3 ].name == "intensity" ) &&
-             ( msg->fields[ 4 ].name == "normal_x" ) ) // Input message type is pcl::PointXYZINormal
+        if ( ( msg->fields.size() == 8 ) && ( msg->fields[ 6 ].name == "intensity" ) &&
+             ( msg->fields[ 3 ].name == "normal_x" ) ) // Input message type is pcl::PointXYZINormal
         {
             pcl::fromROSMsg( *msg, pcl_pc );
             return true;
